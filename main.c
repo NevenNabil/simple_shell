@@ -9,7 +9,8 @@ int main(int an, char **argv)
 {
 	char *create_prompt = "AN_shell $ ";
 	char *strline = NULL, *strline_copy = NULL;
-	size_t a = 0, ssize_t read_char;
+	size_t a = 0; 
+	ssize_t read_char;
 	const char *delima = "\n";
 	int number_tokeens = 0;
 	int i;
