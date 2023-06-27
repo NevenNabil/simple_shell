@@ -1,7 +1,7 @@
 #ifndef AN_SHELL_H
 #define AN_SHELL_H
 #include <stdio.h>
-
+#include <sys/wait.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -17,4 +17,8 @@ char *duplicate_str(const char *string);
 char *copy_str(char *destination, char *source);
 char *find_location(char *cmd);
 size_t string_compare(const char *str1, const char *str2, size_t n);
+int lsh_cd(char **args);
+int lsh_help(char **args);
+int lsh_exit(char **args);
+int lsh_execute(char **args);
 #endif
