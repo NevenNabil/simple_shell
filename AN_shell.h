@@ -16,5 +16,5 @@ char *concat_str(char *destination, char *source);
 char *duplicate_str(const char *string);
 char *copy_str(char *destination, char *source);
 char *find_location(char *cmd);
-
+size_t string_compare(const char *str1, const char *str2, size_t n);
 #endif

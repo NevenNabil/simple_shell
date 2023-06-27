@@ -11,10 +11,8 @@ char *_getenv(const char *name)
 
 	for (envp = environ; *envp != NULL; envp++)
 	{
-		if (strncmp(*envp, name, namelen) == 0 && (*envp)[namelen] == '=')
+		if (string_compare(*envp, name, namelen) == 0 && (*envp)[namelen] == '=')
 		return (&((*envp)[namelen + 1]));
 	}
-}
 	return (NULL);
 }
-
