@@ -37,14 +37,6 @@ int (*builtin_func[]) (char **) = {
 	&lsh_cd,
 	&lsh_exit
 };
-/**
- * lsh_num_builtins- function return size
- * Return:Nothing
- */
-int lsh_num_builtins(void)
-{
-	return (sizeof(builtin_str) / sizeof(char *));
-}
 
 /**
  * cmmdexe - function excute acommand specified
@@ -60,7 +52,7 @@ int cmmdexe(char **argv)
 	{
 		return (1);
 	}
-	for (i = 0; i < lsh_num_builtins(); i++)
+	for (i = 0; i < (sizeof(builtin_str) / sizeof(char *)); i++)
 	{
 		if ((argv) && (string_compare(argv[0], builtin_str[i], 1) == 0))
 		{
@@ -108,3 +100,4 @@ int lsh_exit(char **args)
 	exit(-1);
 	return (-1);
 }
+
