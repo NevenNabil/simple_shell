@@ -37,7 +37,7 @@ int main(int an, char **argv)
 			takens = strtok(NULL, delima);
 		}
 		argv[i] = NULL;
-		cmmdexe(argv);
+		commandx(argv);
 	}
 	free(argv);
 	free(strln_copy);

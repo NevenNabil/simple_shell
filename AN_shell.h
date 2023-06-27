@@ -9,8 +9,7 @@
 #include <sys/wait.h>
 
 extern char **environ;
-
-void cmmdexe(char **argv);
+void commandx(char **argv);
 char *get_location(char *command);
 int string_length(const char *str);
 char *concat_str(char *destination, char *source);
