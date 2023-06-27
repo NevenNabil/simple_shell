@@ -22,4 +22,3 @@ char *duplicate_str(const char *string)
 		output[length] = *--string;
 	return (output);
 }
-

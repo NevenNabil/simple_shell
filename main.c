@@ -7,7 +7,7 @@
  */
 int main(int an, char **argv)
 {
-	char *strln = NULL, *strln_copy = NULL, *takens, *create_prompt = "AN_shell $ ";
+	char *strln = NULL, *strln_copy = NULL, *takens, *create_prompt = "AN_shell$";
 	size_t a = 0;
 	ssize_t read_char;
 	const char *delima = "\n";
@@ -42,7 +42,7 @@ int main(int an, char **argv)
 			takens = strtok(NULL, delima);
 		}
 		argv[i] = NULL;
-		lsh_execute(argv);
+		cmmdexe(argv);
 	}
 	free(strln_copy);
 	free(strln);

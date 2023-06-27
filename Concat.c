@@ -18,4 +18,3 @@ char *concat_str(char *destination, char *source)
 	*destination = *source;
 	return (output);
 }
-

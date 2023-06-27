@@ -21,4 +21,3 @@ char *copy_str(char *destination, char *source)
 	destination[i] = 0;
 	return (destination);
 }
-
