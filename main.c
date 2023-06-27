@@ -23,11 +23,6 @@ int main(int an, char **argv)
 			return (-1);
 		}
 		strln_copy = malloc(sizeof(char) * read_char);
-		if (strln_copy == NULL)
-		{
-			perror("tsh: memory allocation error");
-			return (-1);
-		}
 		copy_str(strln_copy, strln);
 		takens = strtok(strln, delima);
 		for (; takens != NULL; number_tokeens++)
@@ -44,6 +39,7 @@ int main(int an, char **argv)
 		argv[i] = NULL;
 		cmmdexe(argv);
 	}
+	free(argv);
 	free(strln_copy);
 	free(strln);
 	return (0);

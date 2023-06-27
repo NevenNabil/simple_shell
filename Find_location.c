@@ -11,7 +11,7 @@ char *find_location(char *cmd)
 	int cmd_length, directory_length;
 	struct stat buff;
 
-	path = getenv("PATH");
+	path = _getenv("PATH");
 	if (path)
 	{
 		copyPath = duplicate_str(path);
