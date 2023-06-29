@@ -1,18 +1,18 @@
 #include "shell.h"
 
 /**
- * empty_line - checks if exists a empty line
- * @buff: line
- * Return: 0 or 1 (int)
+ * line_hollow - checks if there is empty line
+ * @buffer: line
+ * Return: one or zero integer
  */
 
-int empty_line(char *buff)
+int line_hollow(char *buffer)
 {
-	int i;
+	int k;
 
-	for (i = 0; buff[i] != '\0'; i++)
+	for (k = 0; buffer[k] != '\0'; k++)
 	{
-		if (buff[i] != ' ')
+		if (buffer[k] != ' ')
 			return (0);
 	}
 	return (1);

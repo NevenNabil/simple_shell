@@ -1,51 +1,50 @@
 #include "shell.h"
 
 /**
- * main - open shell, project base
+ * main - Entry point
  * Return: int
  */
 
 int main(void)
 {
-	char *buff = NULL, **args;
-	size_t read_size = 0;
-	ssize_t buff_size = 0;
-	int exit_status = 0;
+	char *bf = NULL, **ac;
+	size_t sized_read = 0;
+	ssize_t sized_bf = 0;
+	int st_ex = 0;
 
 	while (1)
 	{
 		if (isatty(0))
 			printf("AN_shell $ ");
 
-		buff_size = getline(&buff, &read_size, stdin);
-		if (buff_size == -1 || string_compare("exit\n", buff) == 0)
+		sized_bf = getline(&bf, &sized_read, stdin);
+		if (sized_bf == -1 || string_compare("exit\n", bf) == 0)
 		{
-			free(buff);
+			free(bf);
 			break;
 		}
-		buff[buff_size - 1] = '\0';
+		bf[sized_bf - 1] = '\0';
 
-		if (string_compare("env", buff) == 0)
+		if (string_compare("env", bf) == 0)
 		{
-			_env();
+			_environment();
 			continue;
 		}
 
-		if (empty_line(buff) == 1)
+		if (line_hollow(bf) == 1)
 		{
-			exit_status = 0;
+			st_ex = 0;
 			continue;
 		}
 
-		args = separate_str(buff, " ");
-		args[0] = search_path(args[0]);
+		ac = separate_str(bf, " ");
+		ac[0] = search_path(ac[0]);
 
-		if (args[0] != NULL)
-			exit_status = execute(args);
+		if (ac[0] != NULL)
+			st_ex = execute(ac);
 		else
 			perror("Error");
-		free(args);
+		free(ac);
 	}
-	return (exit_status);
+	return (st_ex);
 }
-

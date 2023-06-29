@@ -8,7 +8,7 @@
 
 char *search_path(char *command)
 {
-	char *path = _getenv("PATH"), *path_cpy;
+	char *path = get_env("PATH"), *path_cpy;
 	char **path_split;
 	char *path_concat = NULL;
 	int i = 0, path_len = 0;

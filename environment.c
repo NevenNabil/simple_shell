@@ -1,42 +1,42 @@
 #include "shell.h"
 
 /**
- * _getenv - get env variables
- * @env_var: env variable
- * Return: env variable result, its content
+ * get_env - function gets environment variables
+ * @variable_env: environment variables
+ * Return:  environment variables result
  */
 
-char *_getenv(char *env_var)
+char *get_env(char *variable_env)
 {
-	int i = 0, j;
-	int status;
+	int j = 0, n;
+	int stus;
 
-	while (environ[i])
+	while (environ[j])
 	{
-		status = 1;
+		stus = 1;
 
-		for (j = 0; environ[i][j] != '='; j++)
+		for (n = 0; environ[j][n] != '='; n++)
 		{
-			if (environ[i][j] != env_var[j])
-				status = 0;
+			if (environ[j][n] != variable_env[n])
+				stus = 0;
 		}
-		if (status == 1)
+		if (stus == 1)
 			break;
-		i++;
+		j++;
 	}
-	return (&environ[i][j + 1]);
+	return (&environ[j][n + 1]);
 }
 
 /**
- * _env - prints environment
+ * _environment - function prints env
 */
-void _env(void)
+void _environment(void)
 {
-	int i = 0;
+	int a = 0;
 
-	while (environ[i])
+	while (environ[a])
 	{
-		printf("%s\n", environ[i]);
-		i++;
+		printf("%s\n", environ[a]);
+		a++;
 	}
 }
