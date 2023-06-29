@@ -1,111 +1,109 @@
 #include "shell.h"
 
 /**
- * _strcmp - compares two strings
- * @s1: pointer 1
- * @s2: pointer 2
- * Return: result
+ * string_comapre - compares between 2 strings
+ * @str1: string pinter one
+ * @str2: string pointer two
+ * Return: diference
  */
-int _strcmp(char *s1, char *s2)
+int string_compare(char *str1, char *str2)
 {
-	while (*s1 && *s2)
+	while (*str1 && *str2)
 	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
+		if (*str1 != *str2)
+			return (*str1 - *str2);
 
-		s1++;
-		s2++;
+		str1++;
+		str2++;
 	}
 	return (0);
 }
 
 /**
- * _strcpy - function that copies the string pointed to by src
- * @dest: pointer
- * @src: ponter
- * Return: @dest
+ * copy_str - copies a string
+ * @destination: the destination pointer
+ * @source: the source pointer
+ * Return: pointer to destination
  */
-char *_strcpy(char *dest, char *src)
+char *copy_str(char *destination, char *source)
 {
-	char *c = dest;
+	char *s = destination;
 
-	while (*src != '\0')
+	while (*source != '\0')
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		*destination = *source;
+		destination++;
+		source++;
 	}
-	*dest = '\0';
-	return (c);
+	*destination = '\0';
+	return (s);
 }
 
 /**
- * _split - split string
- * @str: string
- * @sep: separator
- * Return: divided path
+ * separate_str - function separate string
+ * @s: string
+ * @sp: separator
+ * Return: split path
  */
 
-char **_split(char *str, char *sep)
+char **separate_str(char *s, char *sp)
 {
-	char *aux, **split_str;
-	int i = 0;
+	char *an, **sep_str;
+	int k = 0;
 
-	aux = strtok(str, sep);
-	split_str = (char **)_calloc(100, sizeof(char *));
+	an = strtok(s, sp);
+	sep_str = (char **)_calloc(100, sizeof(char *));
 
-	if (!split_str)
+	if (!sep_str)
 	{
-		free(split_str);
+		free(sep_str);
 		return (NULL);
 	}
 
-	while (aux)
+	while (an)
 	{
-		split_str[i] = aux;
-		aux = strtok(NULL, sep);
-		i++;
+		sep_str[k] = an;
+		an = strtok(NULL, sp);
+		k++;
 	}
-	return (split_str);
+	return (sep_str);
 }
 
 /**
- * _strcat - function that concatenates two strings
- * @dest: string
- * @src: string
- * Return: @dest
+ * concat_str - concatenates 2 strings
+ * @destination: string 1
+ * @sourc: string
+ * Return: pointer to destination
  */
 
-char *_strcat(char *dest, char *src)
+char *concat_str(char *destination, char *sourc)
 {
-	int a, b;
+	int l, k;
 
-	for (a = 0; dest[a] != '\0'; a += 1)
+	for (k = 0; destination[k] != '\0'; k += 1)
 	{}
 
-	for (b = 0; src[b] != '\0'; b += 1)
+	for (l = 0; sourc[l] != '\0'; l += 1)
 	{
-		dest[a] = src[b];
-		a++;
+		destination[k] = sourc[l];
+		k++;
 	}
-	dest[a] = '\0';
-	return (dest);
+	destination[k] = '\0';
+	return (destination);
 }
 
 /**
- * _strlength - string length
- * @s: string
- * Return: result
- *
+ * string_length - function takes a string str as an argument
+ * @str: string
+ * Return: the length
  */
 
-int _strlength(char *s)
+int string_length(char *str)
 {
-	int i = 0;
+	int length = 0;
 
-	while (s[i] != '\0')
-		i++;
+	while (str[length] != '\0')
+		length++;
 
-	return (i);
+	return (length);
 }
-

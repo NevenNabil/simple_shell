@@ -12,12 +12,12 @@ extern char **environ;
 
 void *_calloc(unsigned int nmemb, unsigned int size);
 void _env(void);
-char **_split(char *str, char *sep);
-char *_strcat(char *dest, char *src);
-int _strcmp(char *s1, char *s2);
-char *_strcpy(char *dest, char *src);
+char **separate_str(char *s, char *sp);
+char *concat_str(char *destination, char *sourc);
+int string_compare(char *str1, char *str2);
+char *copy_str(char *destination, char *source);
 char *search_path(char *command);
-int _strlength(char *s);
+int string_length(char *str);
 char *_getenv(char *env_var);
 int execute(char **args);
 int empty_line(char *buff);

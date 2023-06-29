@@ -17,4 +17,3 @@ int empty_line(char *buff)
 	}
 	return (1);
 }
-

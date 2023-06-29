@@ -18,14 +18,14 @@ int main(void)
 			printf("AN_shell $ ");
 
 		buff_size = getline(&buff, &read_size, stdin);
-		if (buff_size == -1 || _strcmp("exit\n", buff) == 0)
+		if (buff_size == -1 || string_compare("exit\n", buff) == 0)
 		{
 			free(buff);
 			break;
 		}
 		buff[buff_size - 1] = '\0';
 
-		if (_strcmp("env", buff) == 0)
+		if (string_compare("env", buff) == 0)
 		{
 			_env();
 			continue;
@@ -37,7 +37,7 @@ int main(void)
 			continue;
 		}
 
-		args = _split(buff, " ");
+		args = separate_str(buff, " ");
 		args[0] = search_path(args[0]);
 
 		if (args[0] != NULL)

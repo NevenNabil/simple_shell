@@ -17,19 +17,19 @@ char *search_path(char *command)
 	if (stat(command, &info) == 0)
 		return (command);
 
-	path_cpy = malloc(_strlength(path) + 1);
+	path_cpy = malloc(string_length(path) + 1);
 
-	path_cpy = _strcpy(path_cpy, path);
-	path_split = _split(path_cpy, ":");
+	path_cpy = copy_str(path_cpy, path);
+	path_split = separate_str(path_cpy, ":");
 
 	while (path_split[i])
 	{
-		path_len = _strlength(path_split[i]);
+		path_len = string_length(path_split[i]);
 
 		if (path_split[i][path_len - 1] != '/')
-			path_concat = _strcat(path_split[i], "/");
+			path_concat = concat_str(path_split[i], "/");
 
-		path_concat = _strcat(path_split[i], command);
+		path_concat = concat_str(path_split[i], command);
 
 		if (stat(path_concat, &info) == 0)
 			break;
