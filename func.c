@@ -9,8 +9,8 @@
 
 void *_calloc(unsigned int numemb, unsigned int bufsize)
 {
-	char *pointer = NULL;
 	unsigned int index = 0;
+	char *pointer = NULL;
 
 	if (numemb == 0 || bufsize == 0)
 		return (NULL);
@@ -19,10 +19,9 @@ void *_calloc(unsigned int numemb, unsigned int bufsize)
 
 	if (pointer == NULL)
 		return (NULL);
-	while (index++ < (numemb * bufsize))
-	{
+
+	for (; index < (numemb * bufsize); index++)
 		pointer[index] = 0;
-	}
 
 	return (pointer);
 }
@@ -61,10 +60,9 @@ int execute(char **args)
 char *search_path(char *command)
 {
 	char *path = get_env("PATH"), *copyPath;
-	int i = 0;
-	int path_length = 0;
 	char **splitPath;
 	char *concatPath = NULL;
+	int i = 0, path_length = 0;
 	struct stat info;
 
 	if (stat(command, &info) == 0)
